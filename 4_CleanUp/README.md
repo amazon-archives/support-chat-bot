@@ -12,18 +12,20 @@ Delete the Support Chatbot Serverless Application  created in module 1 using the
 
 1. Select the **SupportChatbot-xxx** stack and use the **Actions** dropdown to click **Delete Stack**.
 
-
-
 ### 2. Module 2 Cleanup
-Delete the Lambda Function created in module 2. Using the instructions below.
+Delete the Cognito pools created for user management
+
+1. Navigate to the **CloudFormation** console under Management Tools.
+
+1. Select the **wildrydes-webapp-xxx** stack and use the **Actions** dropdown to click **Delete Stack**.
+
+### 3. Module 3 Cleanup
+Delete the Lambda Function created to support chatbots using the instructions below.
 
 1. Navigate to the **CloudFormation** console under Management Tools.
 
 1. Select the **Chatbot-Lambda-xxx** stack and use the **Actions** dropdown to click **Delete Stack**.
 
-
-
-### 3. Module 2.1 Cleanup
 Delete the Lex Chatbot created in module two using the following instructions
 
 1. In the AWS Management Console, click **Services** then select **Lex**.
@@ -33,3 +35,9 @@ Delete the Lex Chatbot created in module two using the following instructions
 1. From the **Actions** drop-down, choose **Delete**.
 
 1. Choose **Delete** when prompted to confirm.
+
+You need to also delete the web application and cognito pools created for hosting chatbot
+
+1. Navigate to the **CloudFormation** console under Management Tools.
+
+1. Select the **lex-web-ui-xxx** stack and use the **Actions** dropdown to click **Delete Stack**.

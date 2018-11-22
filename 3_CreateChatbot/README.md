@@ -94,6 +94,9 @@ As the build succeeds it's time for you to test the chatbot. Go to the chatbot a
  [![Launch](http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/images/cloudformation-launch-stack-button.png)](https://console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks/new?stackName=lex-web-ui&templateURL=https://s3.amazonaws.com/aws-bigdata-blog/artifacts/aws-lex-web-ui/artifacts/templates/master.yaml)
 
 5.2 In the Lex Bot Configuration Parameters section, for BotName, type your bot’s name.
+
 5.3 In the Web Application Parameters section, complete each of the parameters.
+
 Note: It’s essential that you use your site’s origin for WebAppParentOrigin.
+
 5.4 After AWS CloudFormation launches the stack (the status is CREATE_COMPLETE), you will see a link on the Outputs tab. Open ParentPageURl and you will see your bot there as iFrame.
