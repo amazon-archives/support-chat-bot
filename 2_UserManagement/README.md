@@ -14,4 +14,4 @@ After users have a confirmed account (either using the email verification proces
 
 ![Authentication architecture](../images/authentication-architecture.png)
 
-After you've successfully created a new user, continue to the next module. [Create Chatbot](3_CreateChatbot)
+After you've successfully created a new user, continue to the next module. [Create Chatbot](../3_CreateChatbot)
