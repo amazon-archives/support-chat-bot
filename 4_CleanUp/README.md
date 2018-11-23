@@ -12,14 +12,7 @@ Delete the Support Chatbot Serverless Application  created in module 1 using the
 
 1. Select the **SupportChatbot-xxx** stack and use the **Actions** dropdown to click **Delete Stack**.
 
-### 2. Module 2 Cleanup
-Delete the Cognito pools created for user management
-
-1. Navigate to the **CloudFormation** console under Management Tools.
-
-1. Select the **wildrydes-webapp-xxx** stack and use the **Actions** dropdown to click **Delete Stack**.
-
-### 3. Module 3 Cleanup
+### 2. Module 3 Cleanup
 Delete the Lambda Function created to support chatbots using the instructions below.
 
 1. Navigate to the **CloudFormation** console under Management Tools.
