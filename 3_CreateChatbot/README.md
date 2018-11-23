@@ -8,8 +8,8 @@ You can launch one of these AWS CloudFormation templates in the Region of your c
 
 Region| Launch
 ------|-----
-US East (N. Virginia) | [![Launch Module 2 in us-east-1](http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/images/cloudformation-launch-stack-button.png)](https://console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks/new?stackName=supportchatbot-lambda-1&templateURL=https://s3.amazonaws.com/supportchatbot-east-1/2_CreateChatbot/create-lambda-bot.yaml)
-US West (Oregon) | [![Launch Module 2 in us-west-2](http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/images/cloudformation-launch-stack-button.png)](https://console.aws.amazon.com/cloudformation/home?region=us-west-2#/stacks/new?stackName=supportchatbot-lambda-1&templateURL=https://s3.amazonaws.com/supportchatbot-east-1/2_CreateChatbot/create-lambda-bot.yaml)
+US East (N. Virginia) | [![Launch Module 2 in us-east-1](http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/images/cloudformation-launch-stack-button.png)](https://console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks/new?stackName=supportchatbot-lambda-1&templateURL=https://s3.amazonaws.com/supportchatbot-east-1/2_CreateChatbot/create-lambda-bot.yml)
+US West (Oregon) | [![Launch Module 2 in us-west-2](http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/images/cloudformation-launch-stack-button.png)](https://console.aws.amazon.com/cloudformation/home?region=us-west-2#/stacks/new?stackName=supportchatbot-lambda-1&templateURL=https://s3.amazonaws.com/supportchatbot-east-1/2_CreateChatbot/create-lambda-bot.yml)
 
 
 <details>
@@ -34,7 +34,7 @@ US West (Oregon) | [![Launch Module 2 in us-west-2](http://docs.aws.amazon.com/A
 
 2.1 Go to output section of supportchatbot-webapp-1 cloud formation template and copy the Cognito Pool Id.
 
-2.2 Open the cognitopwrest function created in step 1.
+2.2 Open the `support-chatbot-function` function created in step 1.
 
 2.3 Replace the PoolID value in line 12 value to the value copied in step 2.1
 ```
@@ -57,7 +57,7 @@ PoolID = 'xxxxxxx'
 3.1. Download Bot JSON file from below location
 
 ```
-https://s3.ap-south-1.amazonaws.com/gsi-ai-ml-bootcamp/Lex/MyBot.json.zip
+https://s3.amazonaws.com/supportchatbot-east-1/lexbot/VirtualHelpDesk.zip
 
 ```
 
@@ -100,3 +100,5 @@ As the build succeeds it's time for you to test the chatbot. Go to the chatbot a
 Note: It’s essential that you use your site’s origin for WebAppParentOrigin.
 
 5.4 After AWS CloudFormation launches the stack (the status is CREATE_COMPLETE), you will see a link on the Outputs tab. Open ParentPageURl and you will see your bot there as iFrame.
+
+5.5 Once you're finished, continue to the next module [CleanUp](4_CleanUp)

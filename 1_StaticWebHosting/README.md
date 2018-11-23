@@ -8,8 +8,8 @@ You can launch one of these AWS CloudFormation templates in the Region of your c
 
 Region| Launch
 ------|-----
-US East (N. Virginia) | [![Launch Module 1 in us-east-1](http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/images/cloudformation-launch-stack-button.png)](https://console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks/new?stackName=supportchatbot-webapp-1&templateURL=https://s3.amazonaws.com/supportchatbot-east-1/1_StaticWebHosting/webapp-static-hosting.yml)
-US West (Oregon) | [![Launch Module 1 in us-west-2](http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/images/cloudformation-launch-stack-button.png)](https://console.aws.amazon.com/cloudformation/home?region=us-west-2#/stacks/new?stackName=supportchatbot-webapp-1&templateURL=https://s3.amazonaws.com/supportchatbot-east-1/1_StaticWebHosting/webapp-static-hosting.yml)
+US East (N. Virginia) | [![Launch Module 1 in us-east-1](http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/images/cloudformation-launch-stack-button.png)](https://console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks/new?stackName=supportchatbot-webapp-1&templateURL=https://s3.amazonaws.com/supportchatbot-east-1/1_StaticWebHosting/webapp-static-hosting.yaml)
+US West (Oregon) | [![Launch Module 1 in us-west-2](http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/images/cloudformation-launch-stack-button.png)](https://console.aws.amazon.com/cloudformation/home?region=us-west-2#/stacks/new?stackName=supportchatbot-webapp-1&templateURL=https://s3.amazonaws.com/supportchatbot-east-1/1_StaticWebHosting/webapp-static-hosting.yaml)
 
 
 
@@ -22,7 +22,7 @@ US West (Oregon) | [![Launch Module 1 in us-west-2](http://docs.aws.amazon.com/A
 1. Click **Next** on the Select Template page.
 
 1. Provide a globally unique name for the **Website Bucket Name** such as `supportchatbot-yourname` and click **Next**.
-    ![Speficy Details Screenshot](../images/cf-details.png)
+    ![Specify Details Screenshot](../images/cf-details.png)
 
 1. On the Options page, leave all the defaults and click **Next**.
 
@@ -45,3 +45,5 @@ US West (Oregon) | [![Launch Module 1 in us-west-2](http://docs.aws.amazon.com/A
 The architecture for this module is very straightforward. All of your static web content including HTML, CSS, JavaScript, images and other files will be stored in Amazon S3. Your end users will then access your site using the public website URL exposed by Amazon S3. You don't need to run any web servers or use other services in order to make your site available.
 
 For the purposes of this module you'll use the Amazon S3 website endpoint URL that we supply. It takes the form `http://{your-bucket-name}.s3-website-{region}.amazonaws.com` or `bucket-name.s3-website.region.amazonaws.com` depending on the region you use. For most real applications you'll want to use a custom domain to host your site. If you're interested in using a your own domain, follow the instructions for [setting up a static website using a custom domain](http://docs.aws.amazon.com/AmazonS3/latest/dev/website-hosting-custom-domain-walkthrough.html) in the Amazon S3 documentation.
+
+Once you've built the static site, continue to the next module, [User Management](2_UserManagement).
