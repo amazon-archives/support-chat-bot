@@ -54,7 +54,7 @@ PoolID = 'xxxxxxx'
 
 ## Step 3: Creating your Bot
 
-3.1. Download the Bot JSON file from [here](VirtualHelpDesk.zip)
+3.1. Download the Bot JSON file from [here](VirtualHelpDesk.zip).
 
 3.2. Create Amazon Lex Bot
 
@@ -66,25 +66,27 @@ Click on **Actions** button and select **Import**. Choose the file downloaded in
 
 3.4 Click on **Build** to build the bot. It might take a minute to build the bot. 
 
-3.5 Aftet build successful message, you can now test the bot. Type 'hi' to start the coversation and say 'I forgot my password'.
+![](../images/Build.png)
+
+3.5 Aftet build successful message, you can now go to the chatbot appearing on the right side of the screen and type 'I forgot my password' to start the coversation.
 
 ## Step 4: Integrating the bot with Lambda and test it
 
 4.1. Add Lambda to the Intent
 
-You need to link your Chatbot to your lambda function. Go to 'Fullfilment' section and choose the lambda you created in step 1 and leave the version as $LATEST. Follow this step for both 'Unlock' and 'PasswordReset' Intents.
+You need to link your Chatbot to your lambda function. Go to 'Fullfilment' section and choose the lambda you created in step 1 and leave the version as $LATEST. Follow this step for both 'UnlockAccount' and 'PWReset' Intents.
 
 4.2. Save The Intent
+
 Now that you have configured your Intent scroll up and save your Intent configuration.
 
 4.3. Build
-Once you have configured your chatbot. Click on build to build your chatbot.
 
-![](../images/Build.png)
+Once you have configured your chatbot. Click on build to build your chatbot.
 
 4.4. Test App
 
-As the build succeeds it's time for you to test the chatbot. Go to the chatbot appearing on the right side of the screen and type any of these messages "Hello", "Hi" and start chatting with the bot.
+As the build succeeds it's time for you to test the chatbot. Go to the chatbot appearing on the right side of the screen and type 'I forgot my password' to start the coversation.
 
 ## Step 5: Host the bot with-in a Web Application
 
