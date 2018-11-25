@@ -54,20 +54,19 @@ PoolID = 'xxxxxxx'
 
 ## Step 3: Creating your Bot
 
-3.1. Download Bot JSON file from below location
-
-```
-https://s3.amazonaws.com/supportchatbot-east-1/lexbot/VirtualHelpDesk.zip
-
-```
+3.1. Download the Bot JSON file from [here](VirtualHelpDesk.zip)
 
 3.2. Create Amazon Lex Bot
+
 Go to Amazon Lex console and click on *Get Started* to go to *Create your Lex bot* page. Click on **cancel** button which is located at the botton right corner of the page. It will take you to Bots listing page.
 
 3.3 Import Bot
+
 Click on **Actions** button and select **Import**. Choose the file downloaded in step 2.1 and click **Import**.
 
-3.4 Click on **Build** to build the bot and test the bot. Type 'hi' to start the coversation and say 'I forgot my password'
+3.4 Click on **Build** to build the bot. It might take a minute to build the bot. 
+
+3.5 Aftet build successful message, you can now test the bot. Type 'hi' to start the coversation and say 'I forgot my password'.
 
 ## Step 4: Integrating the bot with Lambda and test it
 
@@ -101,4 +100,4 @@ Note: It’s essential that you use your site’s origin for WebAppParentOrigin.
 
 5.4 After AWS CloudFormation launches the stack (the status is CREATE_COMPLETE), you will see a link on the Outputs tab. Open ParentPageURl and you will see your bot there as iFrame.
 
-5.5 Once you're finished, continue to the next module [CleanUp](4_CleanUp)
+5.5 Once you're finished, continue to the next module [CleanUp](../4_CleanUp)

@@ -46,4 +46,4 @@ The architecture for this module is very straightforward. All of your static web
 
 For the purposes of this module you'll use the Amazon S3 website endpoint URL that we supply. It takes the form `http://{your-bucket-name}.s3-website-{region}.amazonaws.com` or `bucket-name.s3-website.region.amazonaws.com` depending on the region you use. For most real applications you'll want to use a custom domain to host your site. If you're interested in using a your own domain, follow the instructions for [setting up a static website using a custom domain](http://docs.aws.amazon.com/AmazonS3/latest/dev/website-hosting-custom-domain-walkthrough.html) in the Amazon S3 documentation.
 
-Once you've built the static site, continue to the next module, [User Management](2_UserManagement).
+Once you've built the static site, continue to the next module, [User Management](../2_UserManagement).
