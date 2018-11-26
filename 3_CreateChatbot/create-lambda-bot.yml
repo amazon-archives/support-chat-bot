@@ -48,7 +48,7 @@ Resources:
                 Sid: CognitoManageUser
                 Effect: Allow
                 Action:
-                  - "cognito-idp:AdminDisableUser"
+                  - "cognito-idp:AdminEnableUser"
                   - "cognito-idp:AdminResetUserPassword"
                 Resource:
                   - !Sub "arn:aws:cognito-idp:*:*:userpool/*"

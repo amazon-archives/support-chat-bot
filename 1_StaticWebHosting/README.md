@@ -33,7 +33,7 @@ US West (Oregon) | [![Launch Module 1 in us-west-2](http://docs.aws.amazon.com/A
 
 1. Wait for the `supportchatbot-webapp` stack to reach a status of `CREATE_COMPLETE`.
 
-1. With the `supportchatbot-webapp` stack selected, click on the **Outputs** tab and click on the WebsiteURL link.
+1. With the `supportchatbot-webapp` stack selected, click on the **Resources** tab and click on the WebsiteURL link.
 
 1. Verify the Support Chatbot home page is loading properly and move on to the next module, [User Management](../2_UserManagement).
 ![Support Chatbot homepage screenshot](../images/home-page.png)

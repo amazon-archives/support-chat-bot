@@ -32,7 +32,7 @@ US West (Oregon) | [![Launch Module 2 in us-west-2](http://docs.aws.amazon.com/A
 
 ## Step 2: Configure Cognito pool id in Lambda function
 
-2.1 Go to output section of supportchatbot-webapp-1 cloud formation template and copy the Cognito Pool Id.
+2.1 Go to resources section of supportchatbot-webapp-1 cloud formation template and copy the Cognito User Pool Id.
 
 2.2 Open the `support-chatbot-function` function created in step 1.
 
@@ -51,30 +51,43 @@ with open('./response.json', 'r') as r:
 #use your cognito user pool ID
 PoolID = 'xxxxxxx'
 ```
+2.4 Click `Save` to save the changes made to your Lambda Function
 
 ## Step 3: Creating your Bot
 
 3.1. Download the Bot JSON file from [here](VirtualHelpDesk.zip).
 
 3.2. Create Amazon Lex Bot
+<<<<<<< Updated upstream
 
 Go to Amazon Lex console and click on *Get Started* to go to *Create your Lex bot* page. Click on **cancel** button which is located at the botton right corner of the page. It will take you to Bots listing page.
+=======
+Go to Amazon Lex console and click on *Get Started* to go to *Create your Lex bot* page. Click on **cancel** button which is located at the button right corner of the page. It will take you to Bots listing page.
+>>>>>>> Stashed changes
 
 3.3 Import Bot
 
 Click on **Actions** button and select **Import**. Choose the file downloaded in step 2.1 and click **Import**.
 
+<<<<<<< Updated upstream
 3.4 Click on **Build** to build the bot. It might take a minute to build the bot. 
 
 ![](../images/Build.png)
 
 3.5 Aftet build successful message, you can now go to the chatbot appearing on the right side of the screen and type 'I forgot my password' to start the coversation.
+=======
+3.4 Click on **Build** to build the bot and test the bot. Type 'hi' to start the conversation and say 'I forgot my password'
+>>>>>>> Stashed changes
 
 ## Step 4: Integrating the bot with Lambda and test it
 
 4.1. Add Lambda to the Intent
 
+<<<<<<< Updated upstream
 You need to link your Chatbot to your lambda function. Go to 'Fullfilment' section and choose the lambda you created in step 1 and leave the version as $LATEST. Follow this step for both 'UnlockAccount' and 'PWReset' Intents.
+=======
+You need to link your Chatbot to your lambda function. Go to 'Fulfillment' section and choose the lambda you created in step 1 and leave the version as $LATEST. Follow this step for both 'Unlock' and 'PasswordReset' Intents.
+>>>>>>> Stashed changes
 
 4.2. Save The Intent
 
@@ -88,7 +101,27 @@ Once you have configured your chatbot. Click on build to build your chatbot.
 
 As the build succeeds it's time for you to test the chatbot. Go to the chatbot appearing on the right side of the screen and type 'I forgot my password' to start the coversation.
 
-## Step 5: Host the bot with-in a Web Application
+## Step 5: Test Password Reset and Account Unlock Intent
+
+5.1 Navigate to the Lex console and select the `VirtualHelpDesk` bot.
+
+5.2 Select the `PWReset` intent, and open the Test Bot screen and say something like "I forgot my password"
+
+![](../images/test-bot.png)
+
+5.3 Follow the instructions provided by the bot. Once you've received an email with a reset pin, navigate to `/forgotPassword.html` to reset your password.
+
+5.4 After you've reset your password, navigate to `/signin.html` to signin with your new password.
+
+5.5 Next, select the `UnlockAccount` intent. In another tab, navigate to the `SupportChatbot` Cognito User Pool.
+
+5.6 In the Cognito User Pool, navigate to `Users and Groups`. Select the user you created and click `Disable`
+
+5.7 In the Lex chatbot, in the `UnlockAccount` intent, say something like "I think my account is locked".
+
+5.8 After you complete the conversation with the chatbot, navigate to `/signin.html` and login.
+
+## Step 6: Host the bot with-in a Web Application
 
 5.1 Launch the AWS CloudFormation stack
 

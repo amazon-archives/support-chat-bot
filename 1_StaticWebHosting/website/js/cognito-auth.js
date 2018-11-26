@@ -145,15 +145,17 @@ var SupportChatBot = window.SupportChatBot || {};
       var email = $('#emailInputForgot').val();
       var verificationCode = $('#confirmationCode').val();
       var newPassword = $('#passwordInputSignin').val();
-      var cognitoUser = createCognitoUser(email);
       event.preventDefault();
-      cognitoUser.confirmPassword(verificationCode, newPassword, function resetSuccess(){
-          window.location = 'signin.html';
+      var cognitoUser = createCognitoUser(email);
+      cognitoUser.confirmPassword(confirmationCode, password, {
+        onFailure(err) {
+            console.log(err);
         },
-          function resetError(err){
-            alert(err);
-        }
-      );
+        onSuccess() {
+            window.location = 'signin.html';
+            console.log("Success");
+        },
+      });
     }
 
     function handleRegister(event) {
