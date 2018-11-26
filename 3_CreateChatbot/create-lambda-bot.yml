@@ -10,12 +10,12 @@ Resources:
     Properties:
       Code:
         S3Bucket: "supportchatbot-east-1"
-        S3Key: "lambda/lex-lambda.zip"
+        S3Key: "lambda/support-chatbot-function.zip"
       Description: "Lambda code for the Support Chatbot"
       FunctionName: "support-chatbot-function"
       Handler: "index.handler"
       Role: !GetAtt ChatbotExecutionRole.Arn
-      Runtime: "python3.7"
+      Runtime: "python2.7"
       Timeout: 25
 
   ChatbotExecutionRole:
@@ -48,8 +48,8 @@ Resources:
                 Sid: CognitoManageUser
                 Effect: Allow
                 Action:
-                  - "cognito-idp:AdminDisableUser"
+                  - "cognito-idp:AdminEnableUser"
                   - "cognito-idp:AdminResetUserPassword"
                 Resource:
-                  - !Sub "arn:aws:cognito-idp:*:*:userpool/SupportChatBot"
-                  - !Sub "arn:aws:cognito-idp:*:*:userpool/SupportChatBot"
+                  - !Sub "arn:aws:cognito-idp:*:*:userpool/*"
+                  - !Sub "arn:aws:cognito-idp:*:*:userpool/*"

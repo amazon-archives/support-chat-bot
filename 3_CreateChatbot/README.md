@@ -8,8 +8,8 @@ You can launch one of these AWS CloudFormation templates in the Region of your c
 
 Region| Launch
 ------|-----
-US East (N. Virginia) | [![Launch Module 2 in us-east-1](http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/images/cloudformation-launch-stack-button.png)](https://console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks/new?stackName=supportchatbot-lambda-1&templateURL=https://s3.amazonaws.com/supportchatbot-east-1/2_CreateChatbot/create-lambda-bot.yaml)
-US West (Oregon) | [![Launch Module 2 in us-west-2](http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/images/cloudformation-launch-stack-button.png)](https://console.aws.amazon.com/cloudformation/home?region=us-west-2#/stacks/new?stackName=supportchatbot-lambda-1&templateURL=https://s3.amazonaws.com/supportchatbot-east-1/2_CreateChatbot/create-lambda-bot.yaml)
+US East (N. Virginia) | [![Launch Module 2 in us-east-1](http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/images/cloudformation-launch-stack-button.png)](https://console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks/new?stackName=supportchatbot-lambda-1&templateURL=https://s3.amazonaws.com/supportchatbot-east-1/2_CreateChatbot/create-lambda-bot.yml)
+US West (Oregon) | [![Launch Module 2 in us-west-2](http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/images/cloudformation-launch-stack-button.png)](https://console.aws.amazon.com/cloudformation/home?region=us-west-2#/stacks/new?stackName=supportchatbot-lambda-1&templateURL=https://s3.amazonaws.com/supportchatbot-east-1/2_CreateChatbot/create-lambda-bot.yml)
 
 
 <details>
@@ -32,9 +32,9 @@ US West (Oregon) | [![Launch Module 2 in us-west-2](http://docs.aws.amazon.com/A
 
 ## Step 2: Configure Cognito pool id in Lambda function
 
-2.1 Go to output section of supportchatbot-webapp-1 cloud formation template and copy the Cognito Pool Id.
+2.1 Go to resources section of supportchatbot-webapp-1 cloud formation template and copy the Cognito User Pool Id.
 
-2.2 Open the cognitopwrest function created in step 1.
+2.2 Open the `support-chatbot-function` function created in step 1.
 
 2.3 Replace the PoolID value in line 12 value to the value copied in step 2.1
 ```
@@ -51,52 +51,74 @@ with open('./response.json', 'r') as r:
 #use your cognito user pool ID
 PoolID = 'xxxxxxx'
 ```
+2.4 Click `Save` to save the changes made to your Lambda Function
 
 ## Step 3: Creating your Bot
 
-3.1. Download Bot JSON file from below location
-
-```
-https://s3.ap-south-1.amazonaws.com/gsi-ai-ml-bootcamp/Lex/MyBot.json.zip
-
-```
+3.1. Download the Bot JSON file from [here](VirtualHelpDesk.zip).
 
 3.2. Create Amazon Lex Bot
-Go to Amazon Lex console and click on *Get Started* to go to *Create your Lex bot* page. Click on **cancel** button which is located at the botton right corner of the page. It will take you to Bots listing page.
+
+Go to Amazon Lex console and click on *Get Started* to go to *Create your Lex bot* page. Click on **cancel** button which is located at the button right corner of the page. It will take you to Bots listing page.
 
 3.3 Import Bot
+
 Click on **Actions** button and select **Import**. Choose the file downloaded in step 2.1 and click **Import**.
 
-3.4 Click on **Build** to build the bot and test the bot. Type 'hi' to start the coversation and say 'I forgot my password'
+3.4 Click on **Build** to build the bot. It might take a minute to build the bot.
+
+![](../images/Build.png)
+
+3.5 After build successful message, you can now go to the chatbot appearing on the right side of the screen and type 'I forgot my password' to start the coversation.
 
 ## Step 4: Integrating the bot with Lambda and test it
 
 4.1. Add Lambda to the Intent
 
-You need to link your Chatbot to your lambda function. Go to 'Fullfilment' section and choose the lambda you created in step 1 and leave the version as $LATEST. Follow this step for both 'Unlock' and 'PasswordReset' Intents.
+You need to link your Chatbot to your lambda function. Go to 'Fulfillment' section and choose the lambda you created in step 1 and leave the version as $LATEST. Follow this step for both 'UnlockAccount' and 'PWReset' Intents.
 
 4.2. Save The Intent
+
 Now that you have configured your Intent scroll up and save your Intent configuration.
 
 4.3. Build
-Once you have configured your chatbot. Click on build to build your chatbot.
 
-![](../images/Build.png)
+Once you have configured your chatbot. Click on build to build your chatbot.
 
 4.4. Test App
 
-As the build succeeds it's time for you to test the chatbot. Go to the chatbot appearing on the right side of the screen and type any of these messages "Hello", "Hi" and start chatting with the bot.
+As the build succeeds it's time for you to test the chatbot. Follow the instruction in step 5 to test your chatbot.
 
-## Step 5: Host the bot with-in a Web Application
+## Step 5: Test Password Reset and Account Unlock Intent
 
-5.1 Launch the AWS CloudFormation stack
+5.1 In the VirtualHelpDesk lex bot, and open the Test Bot screen and say something like "I forgot my password"
+
+![](../images/test-bot.png)
+
+5.2 Follow the instructions provided by the bot. Once you've received an email with a reset pin, navigate to `/forgotPassword.html` to reset your password.
+
+5.3 After you've reset your password, navigate to `/signin.html` to sign in with your new password.
+
+5.4 Next, test the `UnlockAccount` intent. In another tab, navigate to the `SupportChatbot` Cognito User Pool.
+
+5.5 In the Cognito User Pool, navigate to `Users and Groups`. Select the user you created and click `Disable`
+
+5.6 In the Lex chatbot, say something like "I think my account is locked".
+
+5.7 After you complete the conversation with the chatbot, navigate to `/signin.html` and verify that you can now login.
+
+## Step 6: Host the bot with-in a Web Application
+
+6.1 Launch the AWS CloudFormation stack
 
  [![Launch](http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/images/cloudformation-launch-stack-button.png)](https://console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks/new?stackName=lex-web-ui&templateURL=https://s3.amazonaws.com/aws-bigdata-blog/artifacts/aws-lex-web-ui/artifacts/templates/master.yaml)
 
-5.2 In the Lex Bot Configuration Parameters section, for BotName, type your bot’s name.
+6.2 In the Lex Bot Configuration Parameters section, for BotName, type your bot’s name.
 
-5.3 In the Web Application Parameters section, complete each of the parameters.
+6.3 In the Web Application Parameters section, complete each of the parameters.
 
 Note: It’s essential that you use your site’s origin for WebAppParentOrigin.
 
-5.4 After AWS CloudFormation launches the stack (the status is CREATE_COMPLETE), you will see a link on the Outputs tab. Open ParentPageURl and you will see your bot there as iFrame.
+6.4 After AWS CloudFormation launches the stack (the status is CREATE_COMPLETE), you will see a link on the Outputs tab. Open ParentPageURl and you will see your bot there as iFrame.
+
+6.5 Once you're finished, continue to the next module [CleanUp](../4_CleanUp)
