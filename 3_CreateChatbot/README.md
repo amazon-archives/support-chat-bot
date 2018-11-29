@@ -9,7 +9,7 @@ You can launch one of these AWS CloudFormation templates in the Region of your c
 Region| Launch
 ------|-----
 US East (N. Virginia) | [![Launch Module 2 in us-east-1](http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/images/cloudformation-launch-stack-button.png)](https://console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks/new?stackName=supportchatbot-lambda-1&templateURL=https://s3.amazonaws.com/supportchatbot-east-1/2_CreateChatbot/create-lambda-bot.yml)
-US West (Oregon) | [![Launch Module 2 in us-west-2](http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/images/cloudformation-launch-stack-button.png)](https://console.aws.amazon.com/cloudformation/home?region=us-west-2#/stacks/new?stackName=supportchatbot-lambda-1&templateURL=https://s3.amazonaws.com/supportchatbot-east-1/2_CreateChatbot/create-lambda-bot.yml)
+
 
 
 <details>

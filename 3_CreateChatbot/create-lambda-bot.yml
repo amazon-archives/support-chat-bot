@@ -13,7 +13,7 @@ Resources:
         S3Key: "lambda/support-chatbot-function.zip"
       Description: "Lambda code for the Support Chatbot"
       FunctionName: "support-chatbot-function"
-      Handler: "index.handler"
+      Handler: "lambda_function.lambda_handler"
       Role: !GetAtt ChatbotExecutionRole.Arn
       Runtime: "python2.7"
       Timeout: 25
